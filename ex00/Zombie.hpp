@@ -6,20 +6,17 @@
 
 class Zombie {
 private:
-    std::string _name;
-    void announce( void );
-    Zombie();
+	std::string _name;
 
-    // Parameterized constructor
-    Zombie(std::string &name);
-
-    // Destructor
-    ~Zombie();
 public:
-    Zombie* newZombie( std::string &name );
-    void randomChump( std::string &name );
-    // Default constructor
-   
+	void announce( void );
+	Zombie();
+
+	// Parameterized constructor
+	Zombie(std::string &name);
+
+	// Destructor
+	~Zombie();
 };
 
 #endif
