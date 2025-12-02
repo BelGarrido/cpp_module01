@@ -6,13 +6,13 @@
 class HumanA {
 	private:
 		std::string _name;
-		Weapon _weapon;
+		Weapon &weaponREF;
 		
 	public:
 		// Basic constructor
-		HumanA();
+		//HumanA();
 		// Parameterized constructor
-		HumanA(const std::string &name, Weapon &weapon);
+		HumanA(const std::string &name, Weapon &newWeapon);
 		// Destructor
 		~HumanA();
 

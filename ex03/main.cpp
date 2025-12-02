@@ -13,11 +13,8 @@ int main()
 	}
 	{
 		Weapon club = Weapon("crude spiked club");
-		std::cout << "checkpoint" << std::endl;
 		HumanB jim("Jim");
-		std::cout << "checkpoint1" << std::endl;
 		jim.setWeapon(club);
-		std::cout << "checkpoint1" << std::endl;
 		jim.attack();
 		club.setType("some other type of club");
 		jim.attack();

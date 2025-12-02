@@ -6,19 +6,19 @@
 class HumanB {
 	private:
 		std::string _name;
-		Weapon *weapon;
+		Weapon *_weapon;
 		
 	public:
 		// Basic constructor
 		HumanB();
 		// Parameterized constructor
-		HumanB(const std::string &name, Weapon &weapon);
+		HumanB(const std::string &name, Weapon &newWeapon);
 		HumanB(const std::string &name);
         // Destructor
 		~HumanB();
 
 		void attack();
-        void setWeapon(Weapon type);
+        void setWeapon(Weapon &newWeapon);
     
 };
 

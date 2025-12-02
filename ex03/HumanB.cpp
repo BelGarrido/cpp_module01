@@ -3,19 +3,18 @@
 // Basic constructor
 HumanB::HumanB(){
     _name = "";
-    weapon = NULL;
 }
 
 // Parameterized constructor (name and weapon)
-HumanB::HumanB(const std::string &name, Weapon &newWeapon){
+HumanB::HumanB(const std::string &name, Weapon &weapon){
     _name = name;
-    *weapon = newWeapon;
+    _weapon = &weapon;
 }
 
 // Parameterized constructor (name)
 HumanB::HumanB(const std::string &name){
     _name = name;
-    weapon = NULL;
+    _weapon = NULL;
 }
 
 // Destructor
@@ -24,12 +23,12 @@ HumanB::~HumanB(){
 }
 
 void HumanB::attack(){
-    if(weapon)
-	    std::cout << _name << " attacks with their " << weapon->getType() << std::endl;
+    if(_weapon != NULL)
+	    std::cout << _name << " attacks with their " << _weapon->getType() << std::endl;
     else
         std::cout << _name << " no weapon to attack with" << std::endl;
 }
 
-void HumanB::setWeapon(Weapon newWeapon){
-	*weapon = newWeapon;
+void HumanB::setWeapon(Weapon &newWeapon){
+	_weapon = &newWeapon;
 }
