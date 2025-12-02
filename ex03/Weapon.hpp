@@ -11,7 +11,7 @@ class Weapon {
 		// Basic constructor
 		Weapon();
 		// Parameterized constructor
-		Weapon(const std::string &newType);
+		Weapon(const std::string &type);
 		// Destructor
 		~Weapon();
 

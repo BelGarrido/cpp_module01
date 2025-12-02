@@ -12,7 +12,7 @@ class HumanA {
 		// Basic constructor
 		HumanA();
 		// Parameterized constructor
-		HumanA(std::string name, Weapon _weapon);
+		HumanA(const std::string &name, Weapon &weapon);
 		// Destructor
 		~HumanA();
 
