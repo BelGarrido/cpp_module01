@@ -1,5 +1,6 @@
 #include <string>
 #include <iostream>
+#include <map>
 
 class Harl{
     private:
@@ -15,6 +16,3 @@ class Harl{
         void complain( std::string level );
 };
 
-
-
-//void (Harl::*complain)(string)

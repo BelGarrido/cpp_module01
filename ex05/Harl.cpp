@@ -1,5 +1,13 @@
 #include "Harl.hpp"
 
+Harl::Harl(){
+
+}
+
+Harl::~Harl(){
+    
+}
+
 void Harl::debug( void ){
     std::cout << "I love having extra bacon for my 7XL-double-cheese-triple-pickle-specialketchup burger. I really do!" << std::endl;
 }
@@ -17,21 +25,23 @@ void Harl::error( void ){
 
 }       
 
-//void (Harl::complain)(str::string) = &Harl::debug;
 
-//void (Harl::*complain)(string)
 
-complain = &Harl::debug;
-//llamar a la funcion
-h.*complain(debug);
 
 void Harl::complain( std::string level ){
-    void (*func)(void);
-    {
-        "DEBUG": debug(),
-        "INFO": info()
-    }structura
-    func = structura(level);
-    func(void); 
-}
 
+    //void (*func)(void);
+    /* std::map<std::string, void(*)()> msg = {
+        {"DEBUG", &debug()},
+        {"ERROR", &error()},
+        {"WARNIGN", &warning()},
+        {"INFO", &info()}
+    }; */
+    std::map<std::string, void(Harl::*)()> msg;
+    msg["DEBUG"] = &Harl::debug;
+    msg["ERROR"] = &Harl::error;
+    msg["WARNIGN"] = &Harl::warning; 
+    msg["INFO"] = &Harl::info;
+    
+    (this->*msg[level])();
+}
