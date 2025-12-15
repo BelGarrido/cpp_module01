@@ -1,4 +1,4 @@
-# ex02 – Differences Between Pointers and References
+# ex02 __ Differences Between Pointers and References
 
 This document explains the main differences between **pointers** and **references** in C++.
 
@@ -153,4 +153,116 @@ However, pointer arithmetic can be performed on the address of an object referre
 | Indirection levels | Multiple | Single |
 | Arithmetic         | Allowed | Not allowed |
 | Memory usage       | Own memory | Shares memory |
+<br><br>
 
+
+# ex03 __ Understanding `getType()` in C++ – Copy vs. Const Reference
+
+This document explains the difference between two implementations of the `getType()` function for a `Weapon` class.
+
+---
+
+## 1. Example Class
+
+```cpp
+class Weapon {
+private:
+    std::string _type;
+
+public:
+    // Function declarations
+    const std::string &getTypeRef() const;
+    std::string getTypeCopy();
+    void setType(const std::string &type);
+};
+```
+
+---
+
+## 2. Implementation Returning a Copy
+
+```cpp
+std::string Weapon::getTypeCopy() {
+    return _type;
+}
+```
+
+### Behavior:
+
+1. Returns a **new `std::string` object** every time the function is called.
+2. The caller receives a **copy** of `_type`.
+3. Modifying the returned string **does not affect** the internal `_type`.
+4. Slight **performance cost** because memory is allocated for the copy.
+5. Safe to use, but less efficient for large strings or frequent calls.
+
+### Example:
+
+```cpp
+Weapon w;
+w.setType("Sword");
+
+std::string type = w.getTypeCopy();
+type = "Axe";  // _type inside Weapon is still "Sword"
+```
+
+---
+
+## 3. Implementation Returning a Const Reference
+
+```cpp
+const std::string &Weapon::getTypeRef() const {
+    return _type;
+}
+```
+
+### Behavior:
+
+1. Returns a **const reference** to the internal `_type`.
+2. No copy is made → **more efficient**.
+3. `const` ensures that the caller **cannot modify** `_type` through the reference.
+4. Can be called on `const` objects of `Weapon`.
+5. Perfect for functions where you just want to **read the value**.
+
+### Example:
+
+```cpp
+const Weapon w;
+std::cout << w.getTypeRef() << std::endl; // Allowed because function is const
+```
+
+> Attempting to modify the returned reference will cause a **compiler error**:
+
+```cpp
+w.getTypeRef() = "Axe"; // ❌ Error: cannot assign to const reference
+```
+
+---
+
+## 4. Key Differences
+
+| Feature                     | Returning Copy           | Returning Const Reference |
+|------------------------------|------------------------|--------------------------|
+| Memory / Performance         | New copy created       | No copy, more efficient  |
+| Ability to modify returned value | Yes, does not affect original | No, const protects internal data |
+| Can be used on `const` object | Only if returning copy  | Yes, because function is const |
+| Typical use case             | Small or temporary strings | Large strings, read-only access |
+
+---
+
+## 5. Summary
+
+- **Returning a copy** is safe but may be **slower** for large strings or frequent calls.
+- **Returning a const reference** is **more efficient** and protects the internal state.
+- In your `Weapon` class, since the description explicitly says:
+
+> “`getType()` returns a **const reference** to the type string.”
+
+The correct implementation is:
+
+```cpp
+const std::string &Weapon::getType() const {
+    return _type;
+}
+```
+
+This ensures efficiency, safety, and compliance with modern C++ best practices.
