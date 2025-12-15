@@ -21,15 +21,6 @@ int main(void){
 
 
 
-
-
-
-
-
-
-
-
-
 /* Differences:  
 
 1. Initialization: A pointer can be initialized in this way: 

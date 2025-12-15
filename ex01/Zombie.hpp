@@ -5,21 +5,24 @@
 #include <iostream>
 
 class Zombie {
-private:
-	std::string _name;
 
-public:
+  private:
+    std::string _name;
 
-	Zombie();
+  public:
 
-	// Parameterized constructor
-	Zombie(std::string &name);
+    Zombie();
 
-	// Destructor
-	~Zombie();
+    // PARAMETERIZED CONSTRUCTOR
+    Zombie(std::string &name);
 
-	void announce( void );
-	void setName(std::string &name);
+    // DESTRUCTOR
+    ~Zombie();
+
+    void announce( void );
+    void setName(std::string &name);
 };
+
+Zombie	*zombieHorde(int N, std::string name);
 
 #endif

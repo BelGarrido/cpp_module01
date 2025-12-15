@@ -1,13 +1,15 @@
 #include "Harl.hpp"
 
+// CONSTRUCTOR
 Harl::Harl(){
 
 }
-
+// DESTRUCTOR
 Harl::~Harl(){
     
 }
 
+// LEVEL FUNCTIONS
 void Harl::debug( void ){
     std::cout << "I love having extra bacon for my 7XL-double-cheese-triple-pickle-specialketchup burger. I really do!" << std::endl;
 }
@@ -23,25 +25,16 @@ void Harl::warning( void ){
 void Harl::error( void ){
     std::cout << "This is unacceptable! I want to speak to the manager now." << std::endl;
 
-}       
-
-
-
+}
 
 void Harl::complain( std::string level ){
-
-    //void (*func)(void);
-    /* std::map<std::string, void(*)()> msg = {
-        {"DEBUG", &debug()},
-        {"ERROR", &error()},
-        {"WARNIGN", &warning()},
-        {"INFO", &info()}
-    }; */
-    std::map<std::string, void(Harl::*)()> msg;
-    msg["DEBUG"] = &Harl::debug;
-    msg["ERROR"] = &Harl::error;
-    msg["WARNIGN"] = &Harl::warning; 
-    msg["INFO"] = &Harl::info;
-    
-    (this->*msg[level])();
+  // Declare a map that associante a string with a certain function
+  std::map <std::string, void(Harl::*)()> msg;
+  // Assing function pointers to specific string keys
+  msg["DEBUG"] = &Harl::debug;
+  msg["ERROR"] = &Harl::error;
+  msg["WARNIGN"] = &Harl::warning; 
+  msg["INFO"] = &Harl::info;
+  //Call the function associated with the 
+  (this->*msg[level])();
 }

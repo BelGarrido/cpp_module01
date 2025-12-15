@@ -5,15 +5,16 @@
 
 } */
 
-// Parameterized constructor (name and weapon)
+//PARAMETERIZED CONSTRUCTOR (NAME AND WEAPON)
 HumanA::HumanA(const std::string &name, Weapon &newWeapon) : _name(name), weaponREF(newWeapon){
 }
 
-// Destructor
+// DESTRUCTOR
 HumanA::~HumanA(){
 
 }
 
+// ATTACK 
 void HumanA::attack(){
 	std::cout << _name << " attacks with their " << weaponREF.getType() << std::endl;
 }

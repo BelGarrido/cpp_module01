@@ -5,17 +5,20 @@
 #include <iostream>
 
 class Weapon {
+
 	private:
 		std::string _type;
+
 	public:
-		// Basic constructor
+		// DEFAULT CONSTRUCTOR
 		Weapon();
-		// Parameterized constructor
+		// PARAMETERIZED CONSTRUCTOR
 		Weapon(const std::string &type);
-		// Destructor
+		// DESTRUCTOR
 		~Weapon();
 
-		std::string getType();
+		//std::string getType();
+    const std::string &Weapon::getType() const;
 		void setType(const std::string &type);
 };
 

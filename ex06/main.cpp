@@ -1,5 +1,4 @@
 #include "Harl.hpp"
-#include <map>
 
 std::string touppercase(std::string s){
     
@@ -13,8 +12,7 @@ std::string touppercase(std::string s){
 int main(int argc, char **argv){
     
     if(argc != 2){
-        std::cout << "Usage: " << argv[0] << " <level of complain " /* << std::endl */;
-        std::cout << "DEBUG | WARNING | INFO | ERROR >" << std::endl;
+        std::cout << "Usage: " << argv[0] << " <level of complain>" << std::endl;
         return 1;
     }
         
@@ -22,9 +20,9 @@ int main(int argc, char **argv){
     std::string level = touppercase(argv[1]);
 
     //std::cout << level << std::endl;
-    if (level.empty() || (level != "DEBUG" && level != "ERROR" && level != "WARNING" && level != "INFO")){
+    if (level.empty()){
         std::cout << "Invalid argument" << std::endl;
-        std::cout << "<level of complain DEBUG | WARNING | INFO | ERROR >" << std::endl;
+        std::cout << "<level of complain>" << std::endl;
         return 1;
     }
 

@@ -10,12 +10,15 @@ private:
 
 public:
 	void announce( void );
+  std::string getName(void);
+
+  //DEFAULT CONSTRUCTOR
 	Zombie();
 
-	// Parameterized constructor
+	// PARAMETERIZED CONSTRUCTOR
 	Zombie(std::string &name);
 
-	// Destructor
+	// DESTRUCTOR
 	~Zombie();
 };
 

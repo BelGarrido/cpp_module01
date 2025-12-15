@@ -1,23 +1,29 @@
 #include "Weapon.hpp"
 
-// Default constructor
+// DEFAULT CONSTRUCTOR
 Weapon::Weapon(){
 	_type = "Default";
 }
 
-// Parameterized constructor
+// PARAMETERIZED CONSTRUCTOR
 Weapon::Weapon(const std::string &type){
 	_type = type;
 }
-// Destructor
+
+// DESTRUCTOR
 Weapon::~Weapon(){
 
 }
 
-// Functions
-std::string Weapon::getType(){
+const std::string &Weapon::getType() const{
 	return _type;
 }
+
+// ORIGINAL GETTYPE FUNCTION
+/* std::string Weapon::getType(){
+	return _type;
+} */
+
 void Weapon::setType(const std::string &type){
 	_type = type;
 }

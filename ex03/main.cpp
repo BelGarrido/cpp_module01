@@ -4,19 +4,20 @@
 
 int main()
 {
+  //Variables declared inside this block exist only within the block.
 	{
-		Weapon club = Weapon("crude spiked club");
-		HumanA bob("Bob", club);
+		Weapon weapon = Weapon("crude spiked club");
+		HumanA bob("Bob", weapon);
 		bob.attack();
-		club.setType("some other type of club");
+		weapon.setType("some other type of club");
 		bob.attack();
 	}
 	{
-		Weapon club = Weapon("crude spiked club");
+		Weapon weapon = Weapon("crude spiked club");
 		HumanB jim("Jim");
-		jim.setWeapon(club);
+		jim.setWeapon(weapon);
 		jim.attack();
-		club.setType("some other type of club");
+		weapon.setType("some other type of club");
 		jim.attack();
 	}
 	return 0;

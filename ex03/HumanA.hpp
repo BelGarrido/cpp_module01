@@ -4,14 +4,13 @@
 #include "Weapon.hpp"
 
 class HumanA {
+  
 	private:
 		std::string _name;
 		Weapon &weaponREF;
 		
 	public:
-		// Basic constructor
-		//HumanA();
-		// Parameterized constructor
+		// PARAMETERIZED CONSTRUCTOR
 		HumanA(const std::string &name, Weapon &newWeapon);
 		// Destructor
 		~HumanA();
