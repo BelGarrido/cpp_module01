@@ -1,5 +1,4 @@
 #include "Zombie.hpp"
-#include "Zombie.h"
 
 int main(void){
 	std::string zombie1 = "Foo(1)";

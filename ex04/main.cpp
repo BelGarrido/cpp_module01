@@ -1,6 +1,5 @@
 #include "replace.h"
 
-
 int main(int argc, char **argv)
 {
 	if(argc != 4){
@@ -10,27 +9,22 @@ int main(int argc, char **argv)
 	
 	std::string s1 = argv[2];
 	std::string s2 = argv[3];
+
 	std::string outFileName = std::string(argv[1]) + ".replace";
 	std::stringstream fileRead;
-	std::ifstream file;
-	std::ofstream outFile;
+  
+	std::ifstream file(argv[1]);
+	std::ofstream outFile(outFileName.c_str());
 
-	if(s1.empty()){
-		std::cerr << "Error:"<< " s1 empty is not allowed" << std::endl;		
+	if(s1.empty() || s2.empty()){
+		std::cerr << "Error:"<< " <strings> empty are not allowed" << std::endl;		
 		return 1;
 	}
 
-	file.open(argv[1]);
-	if (!file.is_open()){
-		std::cerr << "Failed to open the file." << std::endl;
-		return 1;
-	}
-
-	outFile.open(outFileName.c_str());
-	if (!outFile.is_open()){
-    	std::cerr << "Failed to open the file." << std::endl;
-		return 1;
-	}
+  if(isFileEmpty(file)){
+    std::cout << "File is empty\n";
+    return 1;
+  }
 
 	replaceStr(file, fileRead, s1, s2);
 
@@ -39,5 +33,3 @@ int main(int argc, char **argv)
 	outFile.close();
 	return 0;
 }
-
-

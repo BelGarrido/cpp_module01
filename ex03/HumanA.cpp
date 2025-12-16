@@ -1,10 +1,5 @@
 #include "HumanA.hpp"
 
-// Basic constructor
-/* HumanA::HumanA(){
-
-} */
-
 //PARAMETERIZED CONSTRUCTOR (NAME AND WEAPON)
 // This is the only way to initialize references and const members.
 // _name(name) initializes the _name member before the constructor body executes.

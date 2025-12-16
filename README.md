@@ -1,3 +1,8 @@
+*This project has been created as part of the 42 curriculum by anagarri.*
+
+# CPP_Module00
+<br>
+
 # ex02 __ Differences Between Pointers and References
 
 This document explains the main differences between **pointers** and **references** in C++.
@@ -266,3 +271,62 @@ const std::string &Weapon::getType() const {
 ```
 
 This ensures efficiency, safety, and compliance with modern C++ best practices.
+
+
+
+# ex04 __ Understanding istream and ostream
+
+### 2 ways of opening files:
+
+This opens the file immediately when the ifstream object is constructed
+```cpp
+std::ifstream myFile("example.txt"); // file is opened here
+```
+This default-construct the stream and open later
+```cpp
+std::ifstream myFile;   // not yet open
+myFile.open("example.txt"); // opens here
+```
+
+
+# ex05 __ Pointers to function and logs hierarchy
+
+| Level   | Severity   | When to use                     |
+|---------|------------|---------------------------------|
+| DEBUG   | Very low   | Detailed developer info         |
+| INFO    | Low        | Normal program operation        |
+| WARNING | Medium     | Recoverable issues              |
+| ERROR   | High       | Serious failures                |
+
+* ERROR messages always indicate a problem that needs attention.
+
+* WARNING messages are important but don’t stop the program.
+
+* INFO messages just tell you what the program is doing.
+
+* DEBUG messages are for in-depth development details and usually turned off in production.
+
+## Pointers to Member Functions in C++
+
+In C++, you can store pointers to **member functions** and call them dynamically on objects.  
+This is useful when you want to **associate strings or keys with specific methods**, like a dispatch table.
+
+---
+
+### Example: `Harl::complain`
+
+```cpp
+void Harl::complain(std::string level) {
+    // Map strings to member function pointers
+    std::map<std::string, void(Harl::*)()> msg;
+
+    // Assign pointers to string keys
+    msg["DEBUG"]   = &Harl::debug;
+    msg["ERROR"]   = &Harl::error;
+    msg["WARNING"] = &Harl::warning; 
+    msg["INFO"]    = &Harl::info;
+
+    // Call the function associated with the given level
+    (this->*msg[level])();
+}
+

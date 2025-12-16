@@ -9,7 +9,7 @@ class HumanB {
 		Weapon *_weapon;
 		
 	public:
-		// Basic constructor
+		// de
 		HumanB();
 		// Parameterized constructor
 		HumanB(const std::string &name, Weapon &newWeapon);
@@ -18,7 +18,7 @@ class HumanB {
 		~HumanB();
 
 		void attack();
-        void setWeapon(Weapon &newWeapon);
+    void setWeapon(Weapon &newWeapon);
     
 };
 

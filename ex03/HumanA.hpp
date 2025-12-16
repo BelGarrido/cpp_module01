@@ -12,7 +12,7 @@ class HumanA {
 	public:
 		// PARAMETERIZED CONSTRUCTOR
 		HumanA(const std::string &name, Weapon &newWeapon);
-		// Destructor
+		// DESTRUCTOR
 		~HumanA();
 
 		void attack();

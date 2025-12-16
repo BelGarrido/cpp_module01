@@ -25,3 +25,9 @@ void replaceStr(std::ifstream &file, std::stringstream &fileRead, std::string s1
 		}
 	}
 }
+
+bool isFileEmpty(std::istream &file){
+  if(file.peek() == EOF)
+    return true;
+  return false;
+}

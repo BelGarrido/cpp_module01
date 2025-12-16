@@ -24,7 +24,6 @@ void Harl::warning( void ){
 
 void Harl::error( void ){
     std::cout << "This is unacceptable! I want to speak to the manager now." << std::endl;
-
 }
 
 void Harl::complain( std::string level ){
@@ -33,7 +32,7 @@ void Harl::complain( std::string level ){
   // Assing function pointers to specific string keys
   msg["DEBUG"] = &Harl::debug;
   msg["ERROR"] = &Harl::error;
-  msg["WARNIGN"] = &Harl::warning; 
+  msg["WARNING"] = &Harl::warning; 
   msg["INFO"] = &Harl::info;
   //Call the function associated with the 
   (this->*msg[level])();
