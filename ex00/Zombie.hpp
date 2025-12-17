@@ -5,21 +5,21 @@
 #include <iostream>
 
 class Zombie {
-private:
-	std::string _name;
+  private:
+    std::string _name;
 
-public:
-	void announce( void );
-  std::string getName(void);
+  public:
+    void announce( void );
+    std::string getName(void);
 
-  //DEFAULT CONSTRUCTOR
-	Zombie();
+    //DEFAULT CONSTRUCTOR
+    Zombie();
 
-	// PARAMETERIZED CONSTRUCTOR
-	Zombie(std::string &name);
+    // PARAMETERIZED CONSTRUCTOR
+    Zombie(std::string &name);
 
-	// DESTRUCTOR
-	~Zombie();
+    // DESTRUCTOR
+    ~Zombie();
 };
 
 Zombie* newZombie( std::string &name );
